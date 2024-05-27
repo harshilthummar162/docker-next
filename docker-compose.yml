@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  demo:
+    build:
+      context: ./front-end  # Path to the directory containing the Dockerfile
+      dockerfile: dockerfile
+    container_name: demo
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./front-end:/app
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
